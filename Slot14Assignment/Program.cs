@@ -144,12 +144,43 @@ public class Program
             student.Gender = Console.ReadLine();
             Console.Write("Enter new age: ");
             student.Age = int.Parse(Console.ReadLine());
+            //Math
             Console.Write("Enter new Math score: ");
-            student.MathScore = double.Parse(Console.ReadLine());
+            var newMathScore = double.Parse(Console.ReadLine());
+            if (!filter.IsScoreValid(newMathScore))
+            {
+                var msg = "Score is invalid";
+                throw new InvalidScoreException(msg, newMathScore);
+            }
+            else
+            {
+                student.MathScore = newMathScore;
+            }
+            //Physics
             Console.Write("Enter new Physics score: ");
-            student.PhysicsScore = double.Parse(Console.ReadLine());
+            var newPhysicScore = double.Parse(Console.ReadLine());
+            if (!filter.IsScoreValid(newPhysicScore))
+            {
+                var msg = "Score is invalid";
+                throw new InvalidScoreException(msg, newPhysicScore);
+            }
+            else
+            {
+                student.PhysicsScore = newPhysicScore;
+            }
+            
+            //Chemistry
             Console.Write("Enter new Chemistry score: ");
-            student.ChemistryScore = double.Parse(Console.ReadLine());
+            var newChemistryScore = double.Parse(Console.ReadLine());
+            if (!filter.IsScoreValid(newChemistryScore))
+            {
+                var msg = "Score is invalid";
+                throw new InvalidScoreException(msg, newChemistryScore);
+            }
+            else
+            {
+                student.ChemistryScore = newChemistryScore;
+            }
             Console.WriteLine("Student information updated successfully.");
         }
         else
